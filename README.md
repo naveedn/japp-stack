@@ -10,12 +10,17 @@ A Rapid Prototyping stack for data science projects. This repo contains a docker
  - `git clone` this repo
  - cd into the top-level directory
  - `docker pull`
+ - `docker-compose up`
+
+## TODO:
+- Configure the postgres database to be accessible from all other containers
+- Configure airflow with adhoc querying + postgres connection
+- Improve security for all container connections
 
 ## Other Notes:
  - Build the required images via the following:
     - `docker build -f config/webhook/Dockerfile . -t naveedn/japp_stack:webhook`
     - `docker build -f config/notebook/Dockerfile . -t naveedn/japp_stack:notebook`
-
 
 ## Snowflakes:
  - the airflow stack has a custom layer. There wasn't an easy way to programmatically add a new connection, so I modified the running container and saved it as a layer ¯\\__(ツ)__/¯
