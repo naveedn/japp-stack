@@ -18,5 +18,5 @@ A Rapid Prototyping stack for data science projects. This repo contains a docker
 
 
 ## Snowflakes:
- - the airflow stack has a custom layer. There wasn't an easy way to programmatically add a new connection, so I modified the running container and saved it as a layer ¯\_(ツ)_/¯
+ - the airflow stack has a custom layer. There wasn't an easy way to programmatically add a new connection, so I modified the running container and saved it as a layer ¯\\_(ツ)_/¯
  
