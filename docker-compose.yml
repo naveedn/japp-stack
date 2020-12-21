@@ -20,7 +20,7 @@ services:
           - postgres
   
   airflow:
-    image: naveedn/japp-stack:base_airflow
+    image: naveedn/japp_stack:airflow
     depends_on:
       - db
     ports:
