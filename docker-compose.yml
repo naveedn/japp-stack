@@ -20,7 +20,6 @@ services:
           - postgres
 
   airflow:
-    # image: naveedn/japp_stack:airflow
     image: puckel/docker-airflow
     depends_on:
       - db
@@ -28,9 +27,9 @@ services:
       - 8080:8080
       - 5555:5555
     volumes:
-      - "./airflow-requirements.txt:/requirements.txt"
-      - "./notebooks:/usr/local/airflow/notebooks"
-      - "./pipelines:/usr/local/airflow/dags"
+      - "./config/airflow/airflow-requirements.txt:/requirements.txt"
+      - "./src/notebooks:/usr/local/airflow/notebooks"
+      - "./src/pipelines:/usr/local/airflow/dags"
     networks:
       japp_stack:
         aliases:
@@ -43,7 +42,7 @@ services:
     depends_on:
       - db
     volumes:
-      - "./notebooks:/home/jovyan/work"
+      - "./src/notebooks:/home/jovyan/work"
     environment: *common-variables
     networks:
       japp_stack:
@@ -57,7 +56,7 @@ services:
     depends_on:
       - db
     volumes:
-      - "./notebooks:/home/jovyan/work"
+      - "./src/notebooks:/home/jovyan/work"
     environment: *common-variables
     networks:
       japp_stack:
