@@ -45,5 +45,5 @@ After you `docker-compose up`:
 
 ## How to Build:
 Build the required images via the following:
-    1. `docker build -f config/notebook/Dockerfile . -t naveedn/japp_stack:notebook`
-    1. `docker build -f config/webhook/Dockerfile . -t naveedn/japp_stack:webhook`
+1. `docker build -f config/notebook/Dockerfile . -t naveedn/japp_stack:notebook`
+1. `docker build -f config/webhook/Dockerfile . -t naveedn/japp_stack:webhook`
