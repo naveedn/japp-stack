@@ -1,9 +1,8 @@
 import json
 
 from airflow.operators.http_operator import SimpleHttpOperator
-from airflow.models import DAG, Connection
+from airflow.models import Connection
 from airflow import (models, settings)
-from sqlalchemy import exc
 
 
 def create_airflow_conn(conf):
