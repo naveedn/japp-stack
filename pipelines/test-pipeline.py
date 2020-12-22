@@ -7,6 +7,7 @@ from airflow import DAG
 # Operators; we need this to operate!
 from airflow.operators.bash_operator import BashOperator
 from airflow.utils.dates import days_ago
+from airflow.operators.python_operator import PythonOperator
 
 from operators import run_notebook_operator
 
@@ -34,6 +35,8 @@ default_args = {
     # 'sla_miss_callback': yet_another_function,
     # 'trigger_rule': 'all_success'
 }
+
+
 dag = DAG(
     'tutorial',
     default_args=default_args,
@@ -49,7 +52,6 @@ t1 = BashOperator(
     bash_command='date',
     dag=dag,
 )
-
 
 t2 = run_notebook_operator(
     input_nb="test-base-notebook.ipynb",
