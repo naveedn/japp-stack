@@ -21,19 +21,18 @@ The Rapid Prototyping stack for data science projects. This repo contains a dock
  - Jupyter: `http://localhost:8888`
 
 ## Writing your first application
-- After you `docker-compose up`:
-- Go to the [Jupyter Server](http://localhost:8888) and write your first notebook
+After you `docker-compose up`:
+1. Go to the [Jupyter Server](http://localhost:8888) and write your first notebook
     - Notebooks allow you to write text, store images, and graphs alongside your code!
     - A notebook is an executable environment that will run your code in little chunks called cells
     - This allows you to prototype quickly, because you get instantenous feedback as you're developing your project
-- Once you have a notebook you are satisfied with and want to schedule it:
+2. Once you have a notebook you are satisfied with and want to schedule it:
     - Go to `src/pipelines` folder to see where all your data workflows are stored
     - Each data pipeline is defined in its own file. These pipelines are called DAGs
     - Each DAG is composed of tasks. We are going to schedule and execute the notebook below
     - you do this by creating a new `run_notebook_operator` instance in the file, and sequencing it with airflow operators `>>` and `<<`
     - You can trigger workflows to start, re-run jobs, etc from the [Airflow Dashboard](http://localhost:8080)
-
-- Rinse and repeat
+3. Rinse and repeat
 ## TODO
 - Create mechanism to persist state of db indefinitely
     - Thinking about adding docker image layers
