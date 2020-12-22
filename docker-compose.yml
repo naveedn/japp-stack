@@ -43,6 +43,7 @@ services:
       - db
     volumes:
       - "./src/notebooks:/home/jovyan/work"
+      - "./data:/data"
     environment: *common-variables
     networks:
       japp_stack:
@@ -57,6 +58,7 @@ services:
       - db
     volumes:
       - "./src/notebooks:/home/jovyan/work"
+      - "./data:/data"
     environment: *common-variables
     networks:
       japp_stack:
