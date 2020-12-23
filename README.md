@@ -5,7 +5,7 @@
  - **P**andas
  - **P**ostgres
 
- This repo is a project skeleton meant for those who want to analyze the **DATA** and _do science_™ , not spend their day setting up ETL pipelines.
+ This repo is a project skeleton meant for those who want to analyze **DATA** and *do science*™ , not spend their day setting up ETL pipelines.
 
 ## Benefits
 - Effortless setup. Just download docker and go
@@ -17,13 +17,13 @@
 
 So you can prevent this.
 
-![this person did not use the JAPP stack](https://i.redd.it/ux234arc3rl51.jpg)
+![this person did not use the JAPP stack](https://imgs.xkcd.com/comics/python_environment.png)
 
 ## Getting-Started:
- - Install [Docker](https://docs.docker.com/get-docker/)
- - `git clone` the repo
- - `docker pull` to get the docker images installed locally. If you don't have a dockerhub account, you can [do these steps instead](#how-to-build-locally).
- - `docker-compose up` to launch the docker stack
+ 1. Install [Docker](https://docs.docker.com/get-docker/)
+ 2. `git clone` the repo
+ 3. `docker pull` to get the docker images installed locally. If you don't have a dockerhub account, you can [do these steps instead](#how-to-build-locally).
+ 4. `docker-compose up` to launch the docker stack
 
  ... And you're ready to go!
 
@@ -68,8 +68,10 @@ After you `docker-compose up`:
 - Create scraper image
 - Integrate with DBT for ELT on the postgres system
 
-## How to Build Locally
+## How to build the project locally
 If you can't do a `docker pull`, you can build the required images via the following:
 1. cd to the top-level directory of the repo (this is important!)
 1. `docker build -f config/notebook/Dockerfile . -t naveedn/japp_stack:notebook`
 1. `docker build -f config/webhook/Dockerfile . -t naveedn/japp_stack:webhook`
+
+The rest of the steps are the same. After you build the images, you can `docker-compose up`
