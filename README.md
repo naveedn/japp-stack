@@ -5,7 +5,7 @@
  - **P**andas
  - **P**ostgres
 
- This repo is a project skeleton meant for those who want to analyze **DATA** and *do science*™ , not spend their day setting up ETL pipelines.
+ This repo is a project skeleton for the people who want to analyze **DATA** and *do science*™, not spend their day setting up ETL pipelines.
 
 ## Benefits
 - Effortless setup. Just download docker and go
