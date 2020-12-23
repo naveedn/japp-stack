@@ -5,7 +5,7 @@
  - **P**andas
  - **P**ostgres
 
-The Rapid Prototyping stack for data science projects. This repo is meant for anyone in the data community that just want to analyze **D A T A**, not spend their day setting up ETL pipelines.
+ This repo is a project skeleton meant for those who want to analyze the **DATA** and _do science_™ , not spend their day setting up ETL pipelines.
 
 ## Benefits
 - Effortless setup. Just download docker and go
