@@ -1,15 +1,22 @@
-# JAPP-stack
+# JAPP stack
 
-The Rapid Prototyping stack for data science projects. This repo contains a docker-compose for a connected & pre-configured cluster containing:
- - Jupyter Notebook
- - Apache Airflow
- - Pandas
- - Postgres
+ - **J**upyter Notebook
+ - **A**pache Airflow
+ - **P**andas
+ - **P**ostgres
 
-## Installation:
+The Rapid Prototyping stack for data science projects. This repo is meant for anyone in the data community that just want to analyze **D A T A**, not spend their day setting up ETL pipelines.
+
+## Benefits
+- Effortless setup. Just download docker and go
+- Realtime Feedback. Any changes you make, you see the output immediately
+- Battle-tested. No fancy, bleeding edge tech. Just the good stuff, so you can focus on your idea.
+- Encapsulated by design. All the data you ingest, analyze, and generate can be saved to git so you can collaborate with peers
+
+## Getting-Started:
  - Install [Docker](https://docs.docker.com/get-docker/)
  - `git clone` the repo
- - `docker pull` to get the docker images installed locally
+ - `docker pull` to get the docker images installed locally. If you don't have a dockerhub account, you can [do these steps instead](#how-to-build-locally).
  - `docker-compose up` to launch the docker stack
 
  ... And you're ready to go!
@@ -19,6 +26,9 @@ The Rapid Prototyping stack for data science projects. This repo contains a dock
 ## Important URLs:
  - Airflow: `http://localhost:8080`
  - Jupyter: `http://localhost:8888`
+
+Connect to your db instance via `psql` with the following command:
+ - `docker exec -it japp-stack_db_1 psql -U postgres`
 
 ## Writing your first application
 After you `docker-compose up`:
@@ -32,18 +42,17 @@ After you `docker-compose up`:
     - Each DAG is composed of tasks. We are going to schedule and execute the notebook below
     - you do this by creating a new `run_notebook_operator` instance in the file, and sequencing it with airflow operators `>>` and `<<`
     - You can trigger workflows to start, re-run jobs, etc from the [Airflow Dashboard](http://localhost:8080)
-3. Rinse and repeat
+3. Rinse and repeat. Most companies have data pipelines composed of dozens of tasks. This stack allows you to incrementally build your idea task-by-task.
+
 ## TODO
-- Create mechanism to persist state of db indefinitely
-    - Thinking about adding docker image layers
-    - Potentially db dumps stored in the directory?
 - Write Tutorial
 
 ## Nice to Haves
 - Integrate with DBT for ELT on the postgres system
 - Create scraper image
 
-## How to Build:
-Build the required images via the following:
+## How to Build Locally
+If you can't do a `docker pull`, you can build the required images via the following:
+1. cd to the top-level directory of the repo (this is important!)
 1. `docker build -f config/notebook/Dockerfile . -t naveedn/japp_stack:notebook`
 1. `docker build -f config/webhook/Dockerfile . -t naveedn/japp_stack:webhook`
