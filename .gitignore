@@ -1,2 +1,12 @@
 .ipynb_checkpoints
 __pycache__
+
+# pg files
+data/postgres_volume/pg_wal/*
+data/postgres_volume/pg_stat
+data/postgres_volume/pg_stat_tmp/
+data/postgres_volume/postmaster.pid
+data/postgres_volume/global/pg_internal.init
+data/postgres_volume/global/pg_control
+data/postgres_volume/base/13395/pg_internal.init
+
