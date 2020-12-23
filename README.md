@@ -13,6 +13,12 @@
 - Battle-tested. No fancy, bleeding edge tech. Just the good stuff, so you can focus on your idea.
 - Encapsulated by design. All the data you ingest, analyze, and generate can be saved to git so you can collaborate with peers
 
+## Why should I use this?
+
+So you can prevent this.
+
+![this person did not use the JAPP stack](https://i.redd.it/ux234arc3rl51.jpg)
+
 ## Getting-Started:
  - Install [Docker](https://docs.docker.com/get-docker/)
  - `git clone` the repo
@@ -44,12 +50,23 @@ After you `docker-compose up`:
     - You can trigger workflows to start, re-run jobs, etc from the [Airflow Dashboard](http://localhost:8080)
 3. Rinse and repeat. Most companies have data pipelines composed of dozens of tasks. This stack allows you to incrementally build your idea task-by-task.
 
+## Installing new dependencies:
+### Airflow
+- Add the dependencies necessary for Airflow in `config/airflow/airflow-requirements.txt`
+
+### Jupyter
+- Go to `config/notebook/requirements.txt` and add the new dependencies to that file
+- Go to the project root directory
+- Build a new jupyter notebook image: `docker build -f config/notebook/Dockerfile . -t naveedn/japp_stack:notebook`
+- Build a new webhook docker image: `docker build -f config/webhook/Dockerfile . -t naveedn/japp_stack:webhook`
+- On the next docker-compose up, your dependencies will now exist!
+
 ## TODO
 - Write Tutorial
 
 ## Nice to Haves
-- Integrate with DBT for ELT on the postgres system
 - Create scraper image
+- Integrate with DBT for ELT on the postgres system
 
 ## How to Build Locally
 If you can't do a `docker pull`, you can build the required images via the following:
