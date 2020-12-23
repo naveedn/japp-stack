@@ -13,6 +13,8 @@ services:
     environment: *common-variables
     ports:
           - 5432:5432
+    volumes:
+      - "./data/postgres_volume:/var/lib/postgresql/data"
     networks:
       japp_stack:
         aliases:
