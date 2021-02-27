@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
 import json
 
 # The DAG object; we'll need this to instantiate a DAG
@@ -36,6 +36,7 @@ default_args = {
     # 'trigger_rule': 'all_success'
 }
 
+curr_date = datetime.today().strftime('%Y-%m-%d')
 
 dag = DAG(
     'tutorial',
@@ -56,7 +57,20 @@ t1 = BashOperator(
 t2 = run_notebook_operator(
     input_nb="test-base-notebook.ipynb",
     output_nb="output-test-nav-test2.ipynb",
-    dag=dag
+    dag=dag,
 )
 
-t1 >> t2
+t3 = run_notebook_operator(
+    input_nb="write-to-database.ipynb",
+    output_nb="write-to-database-output-{}.ipynb".format(curr_date),
+    dag=dag,
+)
+
+t4 = run_notebook_operator(
+    input_nb="web_scraper_example.ipynb",
+    output_nb="web_scraper_example-output-{}.ipynb".format(curr_date),
+    dag=dag,
+)
+
+t1 >> [t2, t3]
+t3 >> t4
