@@ -75,3 +75,9 @@ If you can't do a `docker pull`, you can build the required images via the follo
 1. `docker build -f config/webhook/Dockerfile . -t naveedn/japp_stack:webhook`
 
 The rest of the steps are the same. After you build the images, you can `docker-compose up`
+
+## Troubleshooting FAQ
+
+> The database keeps crashing when starting. How can I fix?
+
+Delete and re-create the postgres_volumes directory in data. When the postgres image starts up, if there is no data in that location, it will launch the bootstrap script and install whatever configuration files it needs. Note that this will destroy the data in your database; for that reason you should do sqldumps often so that you can restore a snapshot of your database.
