@@ -58,7 +58,6 @@ After you `docker-compose up`:
 - Go to `config/notebook/requirements.txt` and add the new dependencies to that file
 - Go to the project root directory
 - Build a new jupyter notebook image: `docker build -f config/notebook/Dockerfile . -t naveedn/japp_stack:notebook`
-- Build a new webhook docker image: `docker build -f config/webhook/Dockerfile . -t naveedn/japp_stack:webhook`
 - On the next docker-compose up, your dependencies will now exist!
 
 ## TODO

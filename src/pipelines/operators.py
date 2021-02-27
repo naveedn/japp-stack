@@ -30,7 +30,7 @@ def run_notebook_operator(input_nb, output_nb, dag):
     webhook_connection = {
         'conn_id': 'jupyter_webhook',
         'conn_type': 'http',
-        'host': 'webhook',
+        'host': 'notebook',
         'port': 3000
     }
 

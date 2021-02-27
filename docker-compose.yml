@@ -41,6 +41,7 @@ services:
     image: naveedn/japp_stack:notebook
     ports:
       - 8888:8888
+      - 3000:3000
     depends_on:
       - db
     volumes:
@@ -52,21 +53,6 @@ services:
       japp_stack:
         aliases:
           - notebook
-
-  notebook-webhook:
-    image: naveedn/japp_stack:webhook
-    ports:
-      - 3000:3000
-    depends_on:
-      - db
-    volumes:
-      - "./src/notebooks:/home/jovyan/work"
-      - "./data:/data"
-    environment: *common-variables
-    networks:
-      japp_stack:
-        aliases:
-          - webhook
 
   selenium:
     image: selenium/standalone-chrome
