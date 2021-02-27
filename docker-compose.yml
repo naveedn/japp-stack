@@ -45,6 +45,7 @@ services:
       - db
     volumes:
       - "./src/notebooks:/home/jovyan/work"
+      - "./src/pipelines:/home/jovyan/work/pipelines"
       - "./data:/data"
     environment: *common-variables
     networks:
@@ -66,3 +67,12 @@ services:
       japp_stack:
         aliases:
           - webhook
+
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+        - 4444:4444
+    networks:
+      japp_stack:
+        aliases:
+          - selenium
