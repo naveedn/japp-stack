@@ -1,6 +1,8 @@
 .ipynb_checkpoints
 __pycache__
 
+.vscode/
+
 # pg files
 data/postgres_volume/pg_wal/*
 data/postgres_volume/pg_stat
