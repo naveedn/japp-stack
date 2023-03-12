@@ -2,10 +2,13 @@
 
 FROM jupyter/datascience-notebook:latest
 
-# Install Dependencies
 USER root
+RUN sudo apt-get update && sudo apt-get install -y python3-dev libpq-dev
+RUN pg_config --version
+
+# Install Dependencies
 COPY config/notebook/requirements.txt /home/jovyan/requirements.txt
-RUN pip install -r /home/jovyan/requirements.txt
+RUN pip install --quiet --no-cache-dir -r /home/jovyan/requirements.txt
 
 # Set up webhook server
 RUN mkdir /web
